@@ -29,6 +29,8 @@
     <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal">Dodaj novi termin</button>
     <button type="button" class="btn btn-success" onclick="sortiraj()">Sortiraj</button>
     <input type="hidden" id="poredak" value="asc"> 
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchbar">
+
     <table class="table" id="tabelaTermina">
   <thead>
     <tr>
