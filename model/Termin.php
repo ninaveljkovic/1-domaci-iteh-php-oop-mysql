@@ -22,7 +22,12 @@
         }
    
         
+        public static function obrisiTermin($id, $conn){
+            $upit = "delete from termin where id_ter=$id";
 
+            return $conn->query($upit); 
+
+        }
 
 
 
