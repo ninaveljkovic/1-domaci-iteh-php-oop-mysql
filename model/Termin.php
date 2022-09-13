@@ -29,6 +29,12 @@
 
         }
 
+        
+        public static function dodajTermin($termin, $conn){
+            $upit = "insert into termin(datum,zaposleni,frizura) values('$termin->datumVreme','$termin->zaposleni','$termin->frizura')";
+            
+            return $conn->query($upit); 
+        }
 
 
 
