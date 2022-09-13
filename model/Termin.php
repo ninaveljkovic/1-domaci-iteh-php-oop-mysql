@@ -54,6 +54,11 @@
         }
 
 
+        public static function promeniTermin($termin,$conn){
+            $upit = "update termin set datum='$termin->datumVreme', frizura=$termin->frizura, zaposleni=$termin->zaposleni where id_ter=$termin->id";
+               
+            return $conn->query($upit); 
+        }
 
 
     }

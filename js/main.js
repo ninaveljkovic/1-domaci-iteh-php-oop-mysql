@@ -94,3 +94,43 @@ function prikazi(id){
         console.error('The following error occurred: ' + textStatus, errorThrown);
     });
 }
+
+
+
+
+//sada kada korisnik unese neke izmene hocemo da klikom na dugme potvrdi te izmene zaista unesemo u bazu
+$('#izmeni').submit(function () { //kada korisnik klikne dugme unutar modala
+
+    event.preventDefault();
+
+    const $form =  $(this);
+   
+    const $inputs = $form.find('input, select, button, textarea');
+    
+    const serializedData = $form.serialize();
+   
+    $inputs.prop('disabled', true);
+
+  
+    request = $.ajax({
+        url: 'handler/edit.php',
+        type: 'post',
+        data: serializedData
+    })
+
+    request.done(function (response, textStatus, jqXHR) {
+        console.log(response);
+     
+        $('#editModal').modal('hide');
+        location.reload(true);
+        $('#izmeni').reset;
+
+    });
+
+    request.fail(function (jqXHR, textStatus, errorThrown) {
+        console.error('The following error occurred: ' + textStatus, errorThrown);
+    });
+
+
+
+});
