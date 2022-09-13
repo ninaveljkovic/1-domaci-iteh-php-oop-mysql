@@ -37,7 +37,21 @@
         }
 
 
+        public static function prikaziTerminpoID($id, $conn){
+            $upit = "select * from termin t inner join zaposleni z on z.id=t.zaposleni inner join frizura f on f.id_friz = t.frizura where t.id_ter=$id";
+            $myArray = array();
+            $result = $conn->query($upit);
+            
+            if($result){
+                while($row = $result->fetch_array()){
+    
+                    $myArray[] = $row;
+                }
+            }
+            
+            return  $myArray ;
 
+        }
 
 
 

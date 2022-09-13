@@ -61,3 +61,36 @@ $('#rezervisi').submit(function () {
         console.error('Greska: ' + textStatus, errorThrown);
     });
 });
+
+function prikazi(id){
+
+     
+    request = $.ajax({
+        url: 'handler/get.php',
+        type: 'post',
+        data: { 'id': id },
+        dataType: 'json'
+    });
+
+
+    request.done(function (response, textStatus, jqXHR) {
+ 
+        console.log(response)
+
+       $('#skrivenoPoljeID').val(response[0]["id_ter"]); //skriveno polje 
+ 
+        
+       $('#zaposleniE').val(response[0]["id"]).change(); 
+ 
+
+       $('#tretmaniE').val(response[0]["id_friz"]);
+ 
+
+        $('#datumE').val(response[0]['datum'].trim());   
+ 
+    });
+
+    request.fail(function (jqXHR, textStatus, errorThrown) {
+        console.error('The following error occurred: ' + textStatus, errorThrown);
+    });
+}
