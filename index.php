@@ -24,10 +24,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-   
-    <div class="tabelaTermina">
+   <br><br><br>
+    <div class="container">
     <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal">Dodaj novi termin</button>
-    <table class="table">
+    <button type="button" class="btn btn-success" onclick="sortiraj()">Sortiraj</button>
+    <input type="hidden" id="poredak" value="asc"> 
+    <table class="table" id="tabelaTermina">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -43,7 +45,7 @@
 
     </tr>
   </thead>
-  <tbody>
+  <tbody id="teloTabele">
   <?php      while($red = $termini->fetch_array()): ?>
 
                     <tr>
@@ -219,7 +221,7 @@
                                         </div>
                                 </div>
   
-                                <input type="text" id="skrivenoPoljeID" name="skrivenoPoljeID" class="form-control"   />
+                                <input type="hidden" id="skrivenoPoljeID" name="skrivenoPoljeID" class="form-control"   />
 
                        
                         </div>
