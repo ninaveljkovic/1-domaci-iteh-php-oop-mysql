@@ -19,7 +19,11 @@
             $this->lozinka=$lozinka;
  
         }
+        public static function vratiSveZaposlene($conn){
+            $upit ="select * from zaposleni";
 
+            return $conn->query($upit);
+        }
 
       
 

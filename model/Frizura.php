@@ -17,7 +17,11 @@
         }
  
 
- 
+        public static function vratiSveFrizure($conn){
+            $upit ="select * from frizura";
+
+            return $conn->query($upit);
+        }
 
 
 
